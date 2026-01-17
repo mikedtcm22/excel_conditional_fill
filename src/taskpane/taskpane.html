@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FillGaps</title>
+</head>
+<body>
+    <div id="app">
+        <header class="taskpane-header">
+            <h1>FillGaps Settings</h1>
+        </header>
+
+        <main class="taskpane-content">
+            <section class="form-section">
+                <h2 class="section-header">Target Condition</h2>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="targetCondition" value="blanks" checked>
+                        <span class="radio-label">Blanks only</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="targetCondition" value="errors">
+                        <span class="radio-label">Errors only</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="targetCondition" value="both">
+                        <span class="radio-label">Blanks + Errors</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-header">Template Source</h2>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="templateSource" value="activeCell" checked>
+                        <span class="radio-label">Active cell formula</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="templateSource" value="topLeft">
+                        <span class="radio-label">Top-left cell in selection</span>
+                    </label>
+                </div>
+            </section>
+
+            <div class="action-section">
+                <button id="runButton" class="primary-button">Run Fill Operation</button>
+            </div>
+
+            <div id="statusArea" class="status-area"></div>
+        </main>
+    </div>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</body>
+</html>

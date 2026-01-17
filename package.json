@@ -1,0 +1,52 @@
+{
+  "name": "fillgaps-excel-addin",
+  "version": "0.1.0",
+  "description": "Office.js Excel add-in for filling formulas into blank and error cells only",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development --open",
+    "watch": "webpack --mode development --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:manifest": "jest tests/manifest.test.ts",
+    "sideload": "mkdir -p ~/Library/Containers/com.microsoft.Excel/Data/Documents/wef && cp manifest.xml ~/Library/Containers/com.microsoft.Excel/Data/Documents/wef/FillGaps-manifest.xml && echo 'Manifest copied. Please restart Excel and insert the add-in from Insert > My Add-ins > Developer Add-ins.'",
+    "validate": "npm run build && npm run test:manifest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikedtcm22/excel_conditional_fill.git"
+  },
+  "keywords": [
+    "office-addin",
+    "excel",
+    "office-js",
+    "fill-formulas"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikedtcm22/excel_conditional_fill/issues"
+  },
+  "homepage": "https://github.com/mikedtcm22/excel_conditional_fill#readme",
+  "dependencies": {
+    "@microsoft/office-js": "^1.1.110"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/office-js": "^1.0.568",
+    "@types/xml2js": "^0.4.14",
+    "copy-webpack-plugin": "^13.0.1",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.5",
+    "jest": "^30.2.0",
+    "style-loader": "^4.0.0",
+    "ts-jest": "^29.4.6",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.3",
+    "xml2js": "^0.6.2"
+  }
+}

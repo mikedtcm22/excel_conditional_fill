@@ -1,0 +1,206 @@
+/* FillGaps Task Pane Styles */
+/* Office add-in compatible styling for 300-400px width */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', 'San Francisco', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.taskpane-header {
+  padding: 16px 20px;
+  background-color: #0078d4;
+  color: #fff;
+  border-bottom: 1px solid #005a9e;
+}
+
+.taskpane-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Main Content */
+.taskpane-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Form Sections */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* Radio Button Groups */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  min-height: 44px; /* Touch-friendly minimum height for Mac trackpad */
+}
+
+.radio-option:hover {
+  background-color: #f3f2f1;
+}
+
+.radio-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.radio-label {
+  margin-left: 10px;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Action Section */
+.action-section {
+  display: flex;
+  justify-content: stretch;
+  margin-top: 8px;
+}
+
+/* Primary Button */
+.primary-button {
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #0078d4;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-height: 44px; /* Touch-friendly */
+}
+
+.primary-button:hover {
+  background-color: #106ebe;
+}
+
+.primary-button:active {
+  background-color: #005a9e;
+}
+
+.primary-button:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+}
+
+.primary-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Status Area */
+.status-area {
+  min-height: 40px;
+  padding: 12px;
+  background-color: #f3f2f1;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  empty-cells: show;
+}
+
+.status-area:empty {
+  background-color: transparent;
+  min-height: 0;
+  padding: 0;
+}
+
+.status-area.error {
+  background-color: #fde7e9;
+  color: #a80000;
+  border: 1px solid #f1707b;
+}
+
+.status-area.success {
+  background-color: #dff6dd;
+  color: #107c10;
+  border: 1px solid #92c353;
+}
+
+/* Responsive adjustments for narrower task panes */
+@media (max-width: 320px) {
+  .taskpane-content {
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .form-section {
+    gap: 10px;
+  }
+
+  .taskpane-header h1 {
+    font-size: 16px;
+  }
+}
+
+/* Accessibility improvements */
+.radio-option input[type="radio"]:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+}
+
+/* Ensure good contrast */
+@media (prefers-contrast: high) {
+  .radio-option:hover {
+    background-color: #e6e6e6;
+    border: 1px solid #000;
+  }
+
+  .primary-button {
+    border: 2px solid #000;
+  }
+}
