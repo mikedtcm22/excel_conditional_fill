@@ -8,6 +8,7 @@
  */
 
 import { ITemplateInfo, IFillOptions, IFillResult } from './types';
+import { validatePreflightConditions, getNoEligibleCellsMessage } from './validation';
 
 /**
  * Gets the template cell based on the user's selection
@@ -62,7 +63,7 @@ export async function validateAndExtractFormula(
 
   // Validate that a formula exists
   if (!formula || formula === '') {
-    throw new Error('Template cell does not contain a formula');
+    throw new Error('Active cell must contain a formula');
   }
 
   return formula;
@@ -263,10 +264,11 @@ export async function writeFormulasToEligibleCells(
  * Main fill operation orchestrator
  *
  * Executes the complete fill operation pipeline:
- * 1. Detects template formula from specified source
- * 2. Identifies eligible cells based on target condition
- * 3. Writes formulas to eligible cells only
- * 4. Returns result with modification count
+ * 1. Validates preflight conditions (template cell has formula)
+ * 2. Detects template formula from specified source
+ * 3. Identifies eligible cells based on target condition
+ * 4. Writes formulas to eligible cells only
+ * 5. Returns result with modification count
  *
  * This is the main entry point for the fill operation called from the task pane UI.
  *
@@ -277,22 +279,39 @@ export async function executeFillOperation(
   options: IFillOptions
 ): Promise<IFillResult> {
   try {
-    // Step 1: Detect and validate template formula
-    const templateInfo = await detectTemplateFormula(options.templateSource);
+    // Step 1: Validate preflight conditions
+    const validationResult = await validatePreflightConditions(options.templateSource);
 
-    // Step 2: Identify eligible cells based on target condition
-    const eligibleCells = await identifyEligibleCells(options.targetCondition);
-
-    // Step 3: Write formulas to eligible cells (if any found)
-    let modifiedCount = 0;
-    if (eligibleCells.length > 0) {
-      modifiedCount = await writeFormulasToEligibleCells(
-        eligibleCells,
-        templateInfo.formulaR1C1
-      );
+    if (!validationResult.valid) {
+      return {
+        modifiedCount: 0,
+        success: false,
+        error: validationResult.error
+      };
     }
 
-    // Step 4: Return success result
+    // Step 2: Detect and validate template formula
+    const templateInfo = await detectTemplateFormula(options.templateSource);
+
+    // Step 3: Identify eligible cells based on target condition
+    const eligibleCells = await identifyEligibleCells(options.targetCondition);
+
+    // Step 4: Check for no eligible cells and return informational message
+    if (eligibleCells.length === 0) {
+      return {
+        modifiedCount: 0,
+        success: false,
+        error: getNoEligibleCellsMessage(options.targetCondition)
+      };
+    }
+
+    // Step 5: Write formulas to eligible cells
+    const modifiedCount = await writeFormulasToEligibleCells(
+      eligibleCells,
+      templateInfo.formulaR1C1
+    );
+
+    // Step 6: Return success result
     return {
       modifiedCount,
       success: true

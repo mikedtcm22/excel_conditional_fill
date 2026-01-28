@@ -12,11 +12,11 @@
 
 5. [x] **Selective Formula Writing** — Implement batch write operation using R1C1 formulas to fill only eligible cells while preserving all non-target cells unchanged, with proper error handling for edge cases like no eligible cells found. `M`
 
-6. [ ] **Quick Action Commands** — Wire up "Fill Blanks" and "Fill Errors" ribbon buttons to execute with sensible defaults (active cell template, respective target modes) for one-click workflows. `S`
+6. [x] **Quick Action Commands** — Wire up "Fill Blanks" and "Fill Errors" ribbon buttons to execute with sensible defaults (active cell template, respective target modes) for one-click workflows. `S`
 
-7. [ ] **Validation & Error Messages** — Add preflight checks for contiguous range selection, formula presence in template cell, and provide clear user-facing error messages for invalid states. `S`
+7. [x] **Validation & Error Messages** — Add preflight checks for contiguous range selection, formula presence in template cell, and provide clear user-facing error messages for invalid states. `S`
 
-8. [ ] **End-to-End Testing** — Create acceptance tests covering: blanks-only fill preserves values/formulas, errors-only fill targets only error cells, no overwrites occur, template required validation. `M`
+8. [x] **End-to-End Testing** — Create acceptance tests covering: blanks-only fill preserves values/formulas, errors-only fill targets only error cells, no overwrites occur, template required validation. `M`
 
 ## v0.2: Polish & Enhancement
 
@@ -45,7 +45,7 @@
 19. [ ] **Privacy-Respecting Telemetry** — Add optional anonymous usage analytics (feature usage frequency, range sizes, error rates) with clear opt-in/opt-out and privacy policy compliance. `M`
 
 > Notes
-> - Roadmap progresses from v0 (personal Mac utility) → v0.2 (polish) → v1 (commercial product)
+> - Roadmap progresses from v0 (personal Mac utility) -> v0.2 (polish) -> v1 (commercial product)
 > - v0 focuses on core selective fill functionality with minimal UI for personal use
 > - v0.2 adds convenience features and configuration persistence
 > - v1 expands to Windows, adds monetization, and includes power-user features

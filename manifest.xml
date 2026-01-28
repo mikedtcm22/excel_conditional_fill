@@ -72,6 +72,38 @@
                     <SourceLocation resid="Taskpane.Url"/>
                   </Action>
                 </Control>
+
+                <Control xsi:type="Button" id="FillBlanksButton">
+                  <Label resid="FillBlanksButton.Label"/>
+                  <Supertip>
+                    <Title resid="FillBlanksButton.Title"/>
+                    <Description resid="FillBlanksButton.Desc"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>fillBlanksCommand</FunctionName>
+                  </Action>
+                </Control>
+
+                <Control xsi:type="Button" id="FillErrorsButton">
+                  <Label resid="FillErrorsButton.Label"/>
+                  <Supertip>
+                    <Title resid="FillErrorsButton.Title"/>
+                    <Description resid="FillErrorsButton.Desc"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>fillErrorsCommand</FunctionName>
+                  </Action>
+                </Control>
               </Group>
             </OfficeTab>
           </ExtensionPoint>
@@ -94,10 +126,16 @@
         <bt:String id="GetStarted.Title" DefaultValue="FillGaps Add-in Loaded"/>
         <bt:String id="FillGapsGroup.Label" DefaultValue="FillGaps"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Fill Gaps..."/>
+        <bt:String id="FillBlanksButton.Label" DefaultValue="Fill Blanks"/>
+        <bt:String id="FillBlanksButton.Title" DefaultValue="Fill Blanks"/>
+        <bt:String id="FillErrorsButton.Label" DefaultValue="Fill Errors"/>
+        <bt:String id="FillErrorsButton.Title" DefaultValue="Fill Errors"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="FillGaps add-in loaded successfully. Click 'Fill Gaps...' to open the settings pane."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Open FillGaps settings to fill formulas into blank and error cells only"/>
+        <bt:String id="FillBlanksButton.Desc" DefaultValue="Fill blank cells using active cell's formula"/>
+        <bt:String id="FillErrorsButton.Desc" DefaultValue="Fill error cells using active cell's formula"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

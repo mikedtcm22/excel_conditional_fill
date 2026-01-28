@@ -103,6 +103,7 @@ describe('Template Formula Detection', () => {
 
   /**
    * Test 4: Template validation fails when cell has no formula
+   * (Updated to use standardized error message)
    */
   test('validateAndExtractFormula throws error when cell has no formula', async () => {
     const { validateAndExtractFormula } = await import('../src/fillgaps/engine');
@@ -119,7 +120,7 @@ describe('Template Formula Detection', () => {
 
     await expect(
       validateAndExtractFormula(mockContext, mockCell as any)
-    ).rejects.toThrow('Template cell does not contain a formula');
+    ).rejects.toThrow('Active cell must contain a formula');
   });
 
   /**

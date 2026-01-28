@@ -26,7 +26,7 @@ describe('End-to-End Integration', () => {
   }
 
   /**
-   * Test 1: User clicks Run with blanks only mode → blanks filled
+   * Test 1: User clicks Run with blanks only mode - blanks filled
    */
   test('executeFillOperation fills only blank cells when targetCondition is blanks', async () => {
     const originalExcel = (global as any).Excel;
@@ -103,7 +103,7 @@ describe('End-to-End Integration', () => {
   });
 
   /**
-   * Test 2: User clicks Run with errors only mode → errors filled
+   * Test 2: User clicks Run with errors only mode - errors filled
    */
   test('executeFillOperation fills only error cells when targetCondition is errors', async () => {
     const originalExcel = (global as any).Excel;
@@ -175,7 +175,7 @@ describe('End-to-End Integration', () => {
   });
 
   /**
-   * Test 3: User clicks Run with blanks + errors mode → both filled
+   * Test 3: User clicks Run with blanks + errors mode - both filled
    */
   test('executeFillOperation fills both blanks and errors when targetCondition is both', async () => {
     const originalExcel = (global as any).Excel;
@@ -253,9 +253,10 @@ describe('End-to-End Integration', () => {
   });
 
   /**
-   * Test 4: No eligible cells found → returns 0 modifications
+   * Test 4: No eligible cells found - returns informational error message
+   * (Updated to reflect new behavior where 0 eligible cells returns error)
    */
-  test('executeFillOperation returns 0 modifications when no eligible cells found', async () => {
+  test('executeFillOperation returns error when no eligible cells found', async () => {
     const originalExcel = (global as any).Excel;
 
     // Mock template cell with formula
@@ -301,16 +302,17 @@ describe('End-to-End Integration', () => {
       templateSource: 'activeCell'
     });
 
-    expect(result.success).toBe(true);
+    // New behavior: returns error with informational message
+    expect(result.success).toBe(false);
     expect(result.modifiedCount).toBe(0);
-    expect(result.error).toBeUndefined();
+    expect(result.error).toBe('No blank cells found in selection');
 
     // Restore original Excel
     (global as any).Excel = originalExcel;
   });
 
   /**
-   * Test 5: Template has no formula → returns error
+   * Test 5: Template has no formula - returns error with standardized message
    */
   test('executeFillOperation returns error when template cell has no formula', async () => {
     const originalExcel = (global as any).Excel;
@@ -365,7 +367,8 @@ describe('End-to-End Integration', () => {
 
     expect(result.success).toBe(false);
     expect(result.modifiedCount).toBe(0);
-    expect(result.error).toContain('Template cell does not contain a formula');
+    // Updated to use standardized error message from validation module
+    expect(result.error).toBe('Active cell must contain a formula');
 
     // Restore original Excel
     (global as any).Excel = originalExcel;
