@@ -1,0 +1,3 @@
+# Raw Idea
+
+For the next spec, something I'd like to build out is the possibility for this to be usable on a different machine (i.e. be downloaded as an add-in & installed to run - rather than currently requiring I manually start up a dev server to run it). Beyond that, I think the main features I'd like to implement would be hotkey and right-click-menu access. The remaining features suggested in the roadmap beyond that are all good, but I think they can wait to be upgrades once I have a stable version of the current functionality (plus hotkey/right-click) that I can install on a 2nd computer.

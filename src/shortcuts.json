@@ -1,0 +1,30 @@
+{
+  "actions": [
+    {
+      "id": "fillBlanksCommand",
+      "type": "ExecuteFunction",
+      "name": "Fill Blanks"
+    },
+    {
+      "id": "fillErrorsCommand",
+      "type": "ExecuteFunction",
+      "name": "Fill Errors"
+    }
+  ],
+  "shortcuts": [
+    {
+      "action": "fillBlanksCommand",
+      "key": {
+        "default": "Ctrl+Shift+B",
+        "mac": "Command+Shift+B"
+      }
+    },
+    {
+      "action": "fillErrorsCommand",
+      "key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
+      }
+    }
+  ]
+}

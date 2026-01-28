@@ -14,9 +14,9 @@
   <DisplayName DefaultValue="FillGaps"/>
   <Description DefaultValue="Fill formulas into blank and error cells only"/>
 
-  <!-- Icon URLs -->
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
+  <!-- Icon URLs - GitHub Pages -->
+  <IconUrl DefaultValue="https://mikedtcm22.github.io/excel_conditional_fill/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://mikedtcm22.github.io/excel_conditional_fill/assets/icon-64.png"/>
   <SupportUrl DefaultValue="https://github.com/mikedtcm22/excel_conditional_fill"/>
 
   <!-- Host Information -->
@@ -25,7 +25,7 @@
   </Hosts>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
+    <SourceLocation DefaultValue="https://mikedtcm22.github.io/excel_conditional_fill/taskpane.html"/>
   </DefaultSettings>
 
   <!-- Permissions -->
@@ -150,18 +150,18 @@
     </Hosts>
 
     <!-- Extended Overrides for Keyboard Shortcuts -->
-    <ExtendedOverrides Url="https://localhost:3000/shortcuts.json"/>
+    <ExtendedOverrides Url="https://mikedtcm22.github.io/excel_conditional_fill/shortcuts.json"/>
 
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://mikedtcm22.github.io/excel_conditional_fill/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://mikedtcm22.github.io/excel_conditional_fill/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://mikedtcm22.github.io/excel_conditional_fill/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://github.com/mikedtcm22/excel_conditional_fill"/>
-        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://mikedtcm22.github.io/excel_conditional_fill/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://mikedtcm22.github.io/excel_conditional_fill/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="FillGaps Add-in Loaded"/>

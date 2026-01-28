@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
+    "build:prod": "npm run clean:docs && webpack --mode production --env production",
+    "clean:docs": "rm -rf docs && mkdir -p docs",
+    "deploy": "npm run build:prod",
     "start": "webpack serve --mode development --open",
     "watch": "webpack --mode development --watch",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:manifest": "jest tests/manifest.test.ts",
+    "test:production": "jest tests/production-build.test.ts",
     "sideload": "mkdir -p ~/Library/Containers/com.microsoft.Excel/Data/Documents/wef && cp manifest.xml ~/Library/Containers/com.microsoft.Excel/Data/Documents/wef/FillGaps-manifest.xml && echo 'Manifest copied. Please restart Excel and insert the add-in from Insert > My Add-ins > Developer Add-ins.'",
+    "sideload:prod": "mkdir -p ~/Library/Containers/com.microsoft.Excel/Data/Documents/wef && cp manifest-production.xml ~/Library/Containers/com.microsoft.Excel/Data/Documents/wef/FillGaps-manifest.xml && echo 'Production manifest copied. Please restart Excel and insert the add-in from Insert > My Add-ins > Developer Add-ins.'",
     "validate": "npm run build && npm run test:manifest"
   },
   "repository": {
